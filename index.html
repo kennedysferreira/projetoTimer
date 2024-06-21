@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="ligth">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -8,13 +8,13 @@
   <link rel="shortcut icon" href="./assets/favicon.svg" type="image/x-svg">
   <link rel="stylesheet" href="style.css">
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
-  <script type="module" src="./js/main.js" defer></script>
+  <script type="module" src="./scr/main.js" defer></script>
 </head>
 
 <body>
   <div id="app">
-    <button id="toogle-mode">
-      <!-- <span>Ativar/Desativar ligth mode</span> -->
+    <button id="toggle-mode">
+      <span class="sr-only">Ativar/Desativar ligth mode</span>
       <i class="ph-bold ph-sun"></i>
       <i class="ph-bold ph-moon"></i>
     </button>
@@ -25,12 +25,12 @@
     </section>
 
     <section id="controls" class="flex">
-      <button class="ph ph-play-circle "></button>
-      <button class="ph ph-pause-circle "></button>
-      <button class="ph ph-timer secondery"></button>
-      <button class="ph ph-stop-circle secondery"></button>
-      <button class="ph ph-speaker-none secondery"></button>
-      <button class="ph ph-speaker-high "></button>
+      <button data-action="toggleRunning" class="ph ph-play-circle "></button>
+      <button data-action="toggleRunning" class="ph ph-pause-circle "></button>
+      <button data-action="set" class="ph ph-timer secondery"></button>
+      <button data-action="reset" class="ph ph-stop-circle secondery"></button>
+      <button data-action="toggleMusic" class="ph ph-speaker-none secondery"></button>
+      <button data-action="toggleMusic" class="ph ph-speaker-high "></button>
     </section>
   </div>
 </body>
