@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 6.25%;
+
+  --hue: 194;
+  --bgColor: hsl(var(--hue), 5%, 7%);
+  --textColor: hsl(var(--hue), 40%, 98%);
+  --bgControls: hsl(var(--hue), 0%, 14%);
+  --colorIcons: hsl(var(--hue), 100%, 63%);
+}
