@@ -9,6 +9,8 @@ export let toggleRunning = () => {
 };
 export let set = () => {
   el.minutes.setAttribute('contenteditable', true)
+  el.minutes.focus()
+  el.seconds.setAttribute('contenteditable', true)
 };
 export let reset = () => {
   state.isRunning = false

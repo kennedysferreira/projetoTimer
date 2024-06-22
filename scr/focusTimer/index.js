@@ -8,5 +8,6 @@ export let start = (minutes, seconds) => {
 
   timer.updateDisplay()
   events.registerControl()
+  events.setMinutes()
 };
  
