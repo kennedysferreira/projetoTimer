@@ -1,16 +1,20 @@
-import { isRunningAndMusicOn } from "./elements.js";
+import * as el from "./elements.js";
 import state from "./state.js";
+import * as timer from "./timer.js";
+
 
 export let toggleRunning = () => {
-  state.isRunning = isRunningAndMusicOn.classList.toggle("running");
+  state.isRunning = el.isRunningAndMusicOn.classList.toggle("running");
+  timer.countdown()
 };
 export let set = () => {
-  console.log("horario");
+  el.minutes.setAttribute('contenteditable', true)
 };
 export let reset = () => {
   state.isRunning = false
-  isRunningAndMusicOn.classList.remove("running");
+  el.isRunningAndMusicOn.classList.remove("running");
+  timer.updateDisplay()
 };
 export let toggleMusic = () => {
-  state.isMute = isRunningAndMusicOn.classList.toggle("music-on");
+  state.isMute = el.isRunningAndMusicOn.classList.toggle("music-on");
 };
