@@ -1,5 +1,7 @@
 import * as el from "./elements.js";
 import * as actions from "./actions.js";
+import state from "./state.js";
+import { updateDisplay } from "./timer.js";
 
 const handleclick = (event) => {
   const action = event.target.dataset.action;
@@ -11,21 +13,28 @@ const handleclick = (event) => {
 
 const handleFocus = () => {
   el.minutes.textContent = "";
-  el.seconds.textContent = "";
 };
 
 const blockNaNAndMaxLength = (event) => {
-  const teclasPermitidas = [
-    "Backspace",
-    "ArrowLeft",
-    "ArrowRight",
-    "Delete",
-    "Tab",
-  ];
+  const keyPermit = ["Backspace", "ArrowLeft", "ArrowRight", "Delete", "Tab"];
 
-  if (!teclasPermitidas.includes(event.key) && !/\d/.test(event.key)) {
+  if (!keyPermit.includes(event.key) && !/\d/.test(event.key)) {
     event.preventDefault();
   }
+
+  if (!keyPermit.includes(event.key) && event.target.innerText.length >= 2) {
+    event.preventDefault();
+  }
+};
+
+const maxTime = () => {
+  let time = Number(el.minutes.textContent);
+  time = time >= 60 ? 60 : time;
+  state.minutes = time;
+  state.seconds = 0;
+
+  updateDisplay();
+  el.minutes.setAttribute("contenteditable", false);
 };
 
 export const registerControl = () => {
@@ -35,6 +44,5 @@ export const registerControl = () => {
 export const setMinutes = () => {
   el.minutes.addEventListener("focus", handleFocus);
   el.minutes.addEventListener("keydown", blockNaNAndMaxLength);
-  el.seconds.addEventListener("focus", handleFocus);
-  el.seconds.addEventListener("keydown", blockNaNAndMaxLength);
+  el.minutes.addEventListener("blur", maxTime);
 };
