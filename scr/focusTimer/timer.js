@@ -5,7 +5,7 @@ import { reset } from "./actions.js";
 export let countdown = () => {
 
   clearTimeout(state.cowntdownID)
-
+ 
   if (!state.isRunning) {
     return;
   }

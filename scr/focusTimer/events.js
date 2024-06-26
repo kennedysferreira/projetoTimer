@@ -4,7 +4,7 @@ import state from "./state.js";
 import { updateDisplay } from "./timer.js";
 
 const handleclick = (event) => {
-  const action = event.target.dataset.action;
+  const action = event.target.dataset.action; 
   if (actions[action] == undefined) {
     return;
   }

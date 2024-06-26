@@ -1,4 +1,5 @@
 import * as el from "./elements.js";
+import { bgAudio } from "./sounds.js";
 import state from "./state.js";
 import * as timer from "./timer.js";
 
@@ -18,4 +19,11 @@ export let reset = () => {
 };
 export let toggleMusic = () => {
   state.isMute = el.isRunningAndMusicOn.classList.toggle("music-on");
+  if (state.isMute) {
+    bgAudio.play()
+    return
+  }
+
+  bgAudio.pause()
+  
 };

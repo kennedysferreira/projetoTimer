@@ -7,7 +7,7 @@ export let start = (minutes, seconds) => {
   state.seconds = seconds;
 
   timer.updateDisplay()
-  events.registerControl()
+  events.registerControl() 
   events.setMinutes()
 };
  
